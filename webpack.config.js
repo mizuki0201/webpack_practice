@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     path: `${__dirname}/dist`,
     filename: "main.js",
@@ -9,8 +9,13 @@ module.exports = {
       directory: "./dist",
     },
   },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   mode: "development",
   module: {
-    rules: [{ test: /\.js$/, loader: "babel-loader", exclude: /node_modules/ }],
+    rules: [
+      { test: /\.jsx$/, loader: "babel-loader", exclude: /node_modules/ },
+    ],
   },
 };
